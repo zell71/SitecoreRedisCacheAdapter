@@ -160,7 +160,12 @@ namespace Foundation.Caching
         /// <param name="absoluteExpiration">The absolute expiration.</param>
         public void Add(string key, object data, TimeSpan slidingExpiration, DateTime absoluteExpiration)
         {
-            throw new NotImplementedException();
+            if (!this.Enabled)
+                return;
+            if (slidingExpiration == CacheManager.NoSlidingExpiration)
+                this.Add(key, data, absoluteExpiration);
+            else
+                this.Add(key, data, slidingExpiration);
         }
 
         /// <summary>Adds the specified object.</summary>
