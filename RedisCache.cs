@@ -193,6 +193,9 @@ namespace Foundation.Caching
             throw new NotImplementedException();
         }
 
+        /// <summary>Gets the value.</summary>
+        /// <param name="key">The key.</param>
+        /// <returns>Value or null.</returns>
         public object GetValue(string key)
         {
             Assert.ArgumentNotNull((object)key, nameof(key));
@@ -217,6 +220,11 @@ namespace Foundation.Caching
             _cache.KeyDelete(key);
         }
 
+        /// <summary>
+        /// Removes entries from the cache using the specified predicate.
+        /// </summary>
+        /// <param name="predicate">The predicate.</param>
+        /// <returns>Keys which have been removed from cache.</returns>
         public ICollection<string> Remove(Predicate<string> predicate)
         {
             throw new NotImplementedException();
@@ -234,6 +242,10 @@ namespace Foundation.Caching
 
         public ICacheSizeCalculationStrategy CacheSizeCalculationStrategy { get; }
 
+        /// <summary>
+        /// Removes cache records with keys starting with the prefix.
+        /// </summary>
+        /// <param name="prefix">The prefix.</param>
         public void RemovePrefix(string prefix)
         {
             throw new NotImplementedException();
